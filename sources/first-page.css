@@ -101,6 +101,7 @@ button:hover {
 .quote-container {
   text-align: center;
   margin: 50px auto;
+  margin-bottom: 20px;
   max-width: 400px;
   font-family: Arial, sans-serif;
   padding: 10px;
