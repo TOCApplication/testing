@@ -13,6 +13,7 @@
   }
 }
 
+
 // Ensure all answers are hidden initially
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.answer').forEach(answer => {
@@ -59,3 +60,18 @@ function searchQuestions() {
       }
   });
 }
+
+// header to go selection page
+
+document.getElementById('unit-name').addEventListener('click',()=>
+{
+  let headerName = document.getElementById('unit-name').textContent;
+  navigateToUnit('selection.html',`${headerName}`);
+})
+
+// home-icon go to home
+document.querySelector('.home-icon').addEventListener('click',()=>
+  {
+    window.location.href = 'index.html';
+  })
+  

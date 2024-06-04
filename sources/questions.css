@@ -7,7 +7,8 @@ body {
   height: 100vh; /* Full viewport height */
   display: flex;
   flex-direction: column; /* Center the content vertically */
-  -webkit-tap-highlight-color : transparent;
+  -webkit-tap-highlight-color :transparent;
+  box-sizing: border-box;
 }
 
 header {
@@ -17,7 +18,7 @@ header {
   align-items: center;
   background-color: #1f1f1f; /* Darker gray for header */
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
   position: fixed;
   top: 0;
@@ -35,7 +36,7 @@ header h1 {
 .menu-icon, .search-icon {
   font-size: 1.5em; /* Icon size */
   cursor: pointer;
-  margin: 0 10px; /* Margin for better spacing */
+   margin: 5px;/* Margin for better spacing */
 }
 
 aside.sidebar {
@@ -46,10 +47,20 @@ aside.sidebar {
   height: 100%;
   background-color: #333333; /* Dark gray background */
   padding: 20px;
-  padding-top: 40px;
+  padding-top: 90px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
   transition: left 0.3s ease; /* Smooth slide in/out */
   z-index: 999; /* Below header but above main content */
+}
+
+.content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-icon{
+  font-size: 1.3em;
 }
 
 .sidebar-content h2 {
@@ -67,7 +78,8 @@ aside.sidebar {
 }
 
 .search-icon{
-  padding: 5px;
+  padding: 5px ;
+  margin-right:20px ;
 }
 
 .sidebar-content .unit:hover {
@@ -78,12 +90,12 @@ aside.sidebar {
 .search-bar {
   display: none; /* Initially hidden */
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   background-color: #1f1f1f;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000; /* Same as header */
   position: fixed;
-  top: 50px;
+  top: 60px;
   left: 0;
   flex-direction: row; /* Ensure horizontal layout */
   justify-content: center; /* Center align items */
@@ -155,13 +167,20 @@ main {
   height: 0; /* Initially zero height */
   overflow: hidden;
 }
-/*
+
 .answer{
- font-size: ;
+  font-size:  1.1em; 
+  
+
 }
-*/
+
 img{
   width: 100%;
   height: 100%;
   object-fit:contain;
 }
+/*
+.sidebar-content h3{
+ 
+}
+*/

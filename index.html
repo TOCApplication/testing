@@ -3,52 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theory of Computation - Contents</title>
-    <link rel="stylesheet" href="./sources/styles.css">
+    <title>Theory of Computation</title>
+    <link rel="stylesheet" href="./sources/first-page.css">
 </head>
 <body>
     <header>
-        <h1>Theory of Computation</h1>
-        <p>Contents</p>
+        <div class="updates-container">
+            <div class="updates">
+                <span>New Update 1: New App Launched!</span>
+                <span>New Update 2:  Exam dates announced! </span>
+                <span>New Update 3: Study material updated.</span>
+            </div>
+        </div>
+        <h1> Semester IV<br> Theory of Computation</h1>
     </header>
+
     <main>
-        <section class="content-container">
-            <div class="unit" onclick="navigateToUnit('selection.html', 'Unit 1: Automata and Regular Expressions')">
-                <h2>Unit 1: Automata and Regular Expressions</h2>
+        <div class="quote-container">
+            <div class="quote">
+                <span id="quote-text">Loading...</span>
+                <span id="quote-author"></span>
             </div>
-            <div class="unit" onclick="navigateToUnit('selection.html', 'Unit 2: Regular Expressions and Languages')">
-                <h2>Unit 2: Regular Expressions and Languages</h2>
-            </div>
-            <div class="unit" onclick="navigateToUnit('selection.html', 'Unit 3: Context-Free Grammar and Pushdown Automata')">
-                <h2>Unit 3: Context-Free Grammar and Pushdown Automata</h2>
-            </div>
-            <div class="unit" onclick="navigateToUnit('selection.html', 'Unit 4: Normal Forms and Turing Machines')">
-                <h2>Unit 4: Normal Forms and Turing Machines</h2>
-            </div>
-            <div class="unit" onclick="navigateToUnit('selection.html', 'Unit 5: Undecidability')">
-                <h2>Unit 5: Undecidability</h2>
-            </div>
-        </section>
+            <button id="new-quote-btn">Get New Quote</button>
+        </div>
+        <div class="button-container">
+            <button onclick="navigateTo('syllabus.html')">Syllabus</button>
+            <button onclick="navigateTo('first-page.html')">Study</button>
+            <button onclick="navigateTo('university-questions.html')">University Questions</button>
+            <button onclick="navigateTo('contact-us.html')">Contact Us</button>
+            <button onclick="navigateTo('about-us.html')">About Us</button>
+        </div>
     </main>
-    <script src="./sources/script.js"></script>
     <script>
-  (function (w, d, s, o, f, js, fjs) {
-    w["botsonic_widget"] = o;
-    w[o] =
-      w[o] ||
-      function () {
-        (w[o].q = w[o].q || []).push(arguments);
-      };
-    (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
-    js.id = o;
-    js.src = f;
-    js.async = 1;
-    fjs.parentNode.insertBefore(js, fjs);
-  })(window, document, "script", "Botsonic", "https://widget.writesonic.com/CDN/botsonic.min.js");
-  Botsonic("init", {
-    serviceBaseUrl: "https://api-azure.botsonic.ai",
-    token: "78bbc12b-145d-40eb-be26-8ff0cc4852e0",
-  });
-</script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+        const quoteText = document.getElementById("quote-text");
+const quoteAuthor = document.getElementById("quote-author");
+const newQuoteBtn = document.getElementById("new-quote-btn");
+
+function fetchRandomQuote() {
+    fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+            quoteText.textContent = data.content;
+            quoteAuthor.textContent = `- ${data.author}`;
+        })
+        .catch(error => {
+            quoteText.textContent = "Oops! Something went wrong.";
+            console.error(error);
+        });
+}
+
+// Fetch a new quote when the page loads
+window.onload = fetchRandomQuote;
+
+// Fetch a new quote when the button is clicked
+newQuoteBtn.addEventListener("click", fetchRandomQuote);
+
+    </script>
 </body>
 </html>
