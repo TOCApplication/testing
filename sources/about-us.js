@@ -1,18 +1,23 @@
 window.onload = function() {
-  setTimeout(function() {
-      const container = document.querySelector('.credits-container');
-      const totalHeight = container.scrollHeight - container.clientHeight;
-      const duration = 10000; // 10 seconds
-      const increment = totalHeight / (duration / 16.67); // roughly 60fps
+    setTimeout(function() {
+        const container = document.querySelector('.credits-container');
+        const totalHeight = container.scrollHeight - container.clientHeight;
+        const duration = 10000; // 10 seconds
+        const startTime = performance.now();
 
-      let currentScroll = 0;
-      const scrollInterval = setInterval(function() {
-          container.scrollTo(0, currentScroll);
-          currentScroll += increment;
+        function scroll() {
+            const currentTime = performance.now();
+            const elapsedTime = currentTime - startTime;
+            const progress = elapsedTime / duration;
+            const currentScroll = Math.min(totalHeight * progress, totalHeight);
 
-          if (currentScroll >= totalHeight) {
-              clearInterval(scrollInterval);
-          }
-      }, 16.67); // roughly 60fps
-  }, 2000);
+            container.scrollTo(0, currentScroll);
+
+            if (currentScroll < totalHeight) {
+                requestAnimationFrame(scroll);
+            }
+        }
+
+        requestAnimationFrame(scroll);
+    }, 2000);
 };
