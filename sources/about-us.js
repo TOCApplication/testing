@@ -2,7 +2,7 @@ window.onload = function() {
     setTimeout(function() {
         const container = document.querySelector('.credits-container');
         const totalHeight = container.scrollHeight - container.clientHeight;
-        const duration = 10000; // 10 seconds
+        const duration = 11000; // 11 seconds
         const startTime = performance.now();
 
         function scroll() {
